@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import Expenses from './components/Expenses/Expenses';
-import ExpenseFilter from './components/NewExpenses/Expensefilter';
 import NewExpenses from './components/NewExpenses/NewExpenses';
 
 function App() {
-  const [year, setYear] = useState();
   const expenses = [
     {
       id: "e1",
@@ -32,16 +30,9 @@ function App() {
     console.log(expense);
   }
 
-  const changeExpenseyearHandler = changeYear => { 
-    setYear(changeYear);
-  }
-
-  console.log(year);
-
   return (
     <div>
-      <NewExpenses onAddExpense = {addExpenseHandler} changedYear =  {year}/>
-      <ExpenseFilter onChangeExpenseYear = {changeExpenseyearHandler}/>
+      <NewExpenses onAddExpense = {addExpenseHandler}/>
       <Expenses items = {expenses}/>
     </div>
   );

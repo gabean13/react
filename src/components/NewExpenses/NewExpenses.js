@@ -1,6 +1,6 @@
 import './NewExpenses.css';
 import ExpenseForm from './ExpenseForm.js';
-import ExpenseFilter from './Expensefilter';
+import ExpenseFilter from '../Expenses/Expensefilter';
 
 const NewExpenses = (props) => {
     const saveExpenseDataHandler = (enteredExpenseData) => {
@@ -11,8 +11,7 @@ const NewExpenses = (props) => {
         props.onAddExpense(expenseData);
     };
 
-    console.log(props.changedYear)
-
+    
     return (
       <div className="new-expense">
         <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />

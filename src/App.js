@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import Expenses from './components/Expenses/Expenses';
 import NewExpenses from './components/NewExpenses/NewExpenses';
-
-function App() {
-  const expenses = [
+const Dummy = [
     {
       id: "e1",
       title: "Toilet Paper",
@@ -26,9 +24,15 @@ function App() {
       date: new Date(2021, 5, 12), }, //연습용 데이터 
   ];
 
+function App() {
+  const [expenses, saveExpenses] = useState(Dummy);
+
   const addExpenseHandler = expense => {
     console.log(expense);
-  }
+    saveExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
+  };
 
   return (
     <div>
